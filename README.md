@@ -6,11 +6,13 @@
 Base URL is: https://api.wanda.exchange
 
 # Endpoints
-* [GET /v1/timestamp] (#get-timestamp)
-* [GET /v1/market/symbols] (#get-market-symbols)
-* [GET /v1/market/ticker] (#get-market-ticker)
-* [GET /v1/market/trades] (#get-market-trades)
-* [GET /v1/market/bids] (#get-market-bids)
+* [GET /v1/timestamp] (#v1-timestamp)
+* [GET /v1/market/assets] (#v1-market-assets)
+* [GET /v1/market/fiats] (#v1-market-fiats)
+* [GET /v1/market/pairs] (#v1-market-pairs)
+* [GET /v1/market/ticker] (#v1-market-ticker)
+* [GET /v1/market/trades] (#v1-market-trades)
+* [GET /v1/market/bids] (#v1-market-bids)
 * [GET /v1/market/asks] (#get-market-asks)
 * [GET /v1/market/open] (#get-market-open)
 * [GET /v1/market/tv] (#get-market-tv)
@@ -47,7 +49,6 @@ Signature must equal to result of contatation of: `ts` and your {API KEY}. If yo
 # API documentation
 Refer to the following for description of each endpoint
 
-
 ### GET /v1/timestamp
 
 #### Description:
@@ -62,10 +63,38 @@ Get the server timestamp.
 ```
 
 
-### GET /api/market/symbols
+### GET /api/market/assets
 
 #### Description:
-List all available fiat and asset symbols.
+List all available assets.
+
+#### Query:
+* `ts` (int): Your timestamp
+
+#### Response:
+```javascript
+{
+  error: 0,
+  result: [
+    {
+      id: 51,
+      symbol: "BTC",
+      name: "Bitcoin"
+    },
+    {
+      id: 54,
+      symbol: "ETH",
+      name: "Etherium"
+    }
+  ]
+}
+```
+
+
+### GET /api/market/fiats
+
+#### Description:
+List all available fiats.
 
 #### Query:
 * `ts` (int): Your timestamp
@@ -84,20 +113,38 @@ List all available fiat and asset symbols.
       id: 12,
       symbol: "EUR",
       name: "Euro"
-    },
-    {
-      id: 51,
-      symbol: "BTC",
-      name: "Bitcoin"
-    },
-    {
-      id: 54,
-      symbol: "ETH",
-      name: "Etherium"
     }
   ]
 }
 ```
 
 
+### GET /api/market/pairs
+
+#### Description:
+List all available pairs (fiat -> asset).
+
+#### Query:
+* `ts` (int): Your timestamp
+
+#### Response:
+```javascript
+{
+  error: 0,
+  result: [
+    {
+      id: 1,
+      fiat: 11,
+      asset: 51,
+      pair: "THB_BTC"
+    },
+    {
+      id: 3,
+      fiat: 11,
+      asset: 53,
+      pair: "THB_ETH"
+    }
+  ]
+}
+```
 
