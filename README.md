@@ -59,7 +59,10 @@ Get the server timestamp.
 
 #### Response:
 ```javascript
-1529999999
+{
+  error: false,
+  result: 1567890123
+}
 ```
 
 
@@ -74,19 +77,54 @@ List all available assets.
 #### Response:
 ```javascript
 {
-  error: 0,
-  result: [
-    {
-      id: 51,
-      symbol: "BTC",
-      name: "Bitcoin"
-    },
-    {
-      id: 54,
-      symbol: "ETH",
-      name: "Etherium"
-    }
-  ]
+    "result": [
+        {
+            "id": 51,
+            "symbol": "BTC",
+            "name": "Bitcoin"
+        },
+        {
+            "id": 52,
+            "symbol": "BCH",
+            "name": "Bitcoin Cash"
+        },
+        {
+            "id": 53,
+            "symbol": "BTG",
+            "name": "Bitcoin Gold"
+        },
+        {
+            "id": 54,
+            "symbol": "ETH",
+            "name": "Ethereum"
+        },
+        {
+            "id": 55,
+            "symbol": "LTC",
+            "name": "Litecoin"
+        },
+        {
+            "id": 56,
+            "symbol": "XLM",
+            "name": "Stellar Lumens Coin"
+        },
+        {
+            "id": 57,
+            "symbol": "XRP",
+            "name": "Ripple"
+        },
+        {
+            "id": 58,
+            "symbol": "ZEC",
+            "name": "Zcash"
+        },
+        {
+            "id": 59,
+            "symbol": "DASH",
+            "name": "Dash"
+        }
+    ],
+    "error": false
 }
 ```
 
@@ -102,19 +140,19 @@ List all available fiats.
 #### Response:
 ```javascript
 {
-  error: 0,
-  result: [
-    {
-      id: 11,
-      symbol: "THB",
-      name: "Thai Bath"
-    },
-    {
-      id: 12,
-      symbol: "EUR",
-      name: "Euro"
-    }
-  ]
+    "result": [
+        {
+            "id": 11,
+            "symbol": "THB",
+            "name": "Thai Bat"
+        },
+        {
+            "id": 13,
+            "symbol": "EUR",
+            "name": "Euro"
+        }
+    ],
+    "error": false
 }
 ```
 
@@ -130,21 +168,82 @@ List all available pairs (fiat -> asset).
 #### Response:
 ```javascript
 {
-  error: 0,
-  result: [
-    {
-      id: 1,
-      fiat: 11,
-      asset: 51,
-      pair: "THB_BTC"
-    },
-    {
-      id: 3,
-      fiat: 11,
-      asset: 53,
-      pair: "THB_ETH"
-    }
-  ]
+    "result": [
+        {
+            "id": 1,
+            "from": "THB",
+            "to": "BTC",
+            "pair": "THB_BTC",
+            "availability": {
+                "asks": true,
+                "bids": true
+            }
+        },
+        {
+            "id": 2,
+            "from": "THB",
+            "to": "BCH",
+            "pair": "THB_BCH",
+            "availability": {
+                "asks": true,
+                "bids": true
+            }
+        },
+        {
+            "id": 3,
+            "from": "THB",
+            "to": "ETH",
+            "pair": "THB_ETH",
+            "availability": {
+                "asks": true,
+                "bids": true
+            }
+        },
+        {
+            "id": 4,
+            "from": "THB",
+            "to": "LTC",
+            "pair": "THB_LTC",
+            "availability": {
+                "asks": true,
+                "bids": true
+            }
+        },
+        {
+            "id": 5,
+            "from": "THB",
+            "to": "XRP",
+            "pair": "THB_XRP",
+            "availability": {
+                "asks": true,
+                "bids": true
+            }
+        },
+        {
+            "id": 6,
+            "from": "THB",
+            "to": "DASH",
+            "pair": "THB_DASH",
+            "availability": {
+                "asks": true,
+                "bids": true
+            }
+        }
+    ],
+    "error": false
+}
+```
+
+```
+{
+  "id": 6, // ID
+  "from": "THB", // Asset (fiat) from
+  "to": "DASH", // Asset (cryptocurrency) to
+  "pair": "THB_DASH", // Pair name
+  "availability": {
+    "asks": true, // Availability of placing asks
+    "bids": true  // Availability of placing asks
+  }
 }
 ```
 
