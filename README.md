@@ -6,20 +6,20 @@
 Base URL is: https://api.wanda.exchange
 
 # Endpoints
-* [GET /v1/timestamp] #get-timestamp
-* [GET /v1/market/symbols] #get-market-symbols
-* [GET /v1/market/ticker] #get-market-ticker
-* [GET /v1/market/trades] #get-market-trades
-* [GET /v1/market/bids] #get-market-bids
-* [GET /v1/market/asks] #get-market-asks
-* [GET /v1/market/open] #get-market-open
-* [GET /v1/market/tv] #get-market-tv
+* [GET /v1/timestamp] (#get-timestamp)
+* [GET /v1/market/symbols] (#get-market-symbols)
+* [GET /v1/market/ticker] (#get-market-ticker)
+* [GET /v1/market/trades] (#get-market-trades)
+* [GET /v1/market/bids] (#get-market-bids)
+* [GET /v1/market/asks] (#get-market-asks)
+* [GET /v1/market/open] (#get-market-open)
+* [GET /v1/market/tv] (#get-market-tv)
 
-* [POST /v1/user/wallets] #post-user-wallets
-* [POST /v1/user/wallet] #post-user-wallet
-* [POST /v1/user/bid/make] #post-user-bid
-* [POST /v1/user/ask/make] #post-user-ask
-* [POST /v1/user/order] #post-user-order
+* [POST /v1/user/wallets] (#post-user-wallets)
+* [POST /v1/user/wallet] (#post-user-wallet)
+* [POST /v1/user/bid/make] (#post-user-bid)
+* [POST /v1/user/ask/make] (#post-user-ask)
+* [POST /v1/user/order] (#post-user-order)
 
 # Constructing requests
 ## Request Header
