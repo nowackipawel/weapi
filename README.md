@@ -247,3 +247,89 @@ List all available pairs (fiat -> asset).
 }
 ```
 
+
+
+### GET /v1/market/ticker
+
+#### Description:
+Get ticker information.
+
+#### Query:
+* `ts` (int): Your timestamp
+* `sym` (string) The symbol (optional)
+
+#### Response:
+```javascript
+{
+  THB_BTC: {
+    id: 1,
+    last: "216415.00",
+    lowestAsk: "216678.00",
+    highestBid: "215000.00",
+    percentChange: "1.91",
+    baseVolume: "71.02603946",
+    quoteVolume: "15302897.99",
+    isFrozen: "0",
+    high24hr: "221396.00",
+    low24hr: "206414.00"
+  },
+  THB_ETH: {
+    id: 2,
+    last: "11878.00",
+    lowestAsk: "12077.00",
+    highestBid: "11893.00",
+    percentChange: "-0.49",
+    baseVolume: "455.17839270",
+    quoteVolume: "5505664.42",
+    isFrozen: "0",
+    high24hr: "12396.00",
+    low24hr: "11645.00"
+  }
+}
+```
+
+
+
+# Errors
+## API Calls
+### No API Key in HTTP Request Headers
+Status code: 400
+```javascript
+{
+  "result": null,
+  "error": {
+    "id": 10,
+    "name": "APIKEY_HEADER_HAS_NOT_BEEN_PROVIDED",
+    "description": "ApiV1.error_APIKEY_HEADER_HAS_NOT_BEEN_PROVIDED",
+    "params": []
+  }
+}
+```
+
+### API Key does not exist
+Status code: 401
+```javascript
+{
+  "result": null,
+  "error": {
+    "id": 11,
+    "name": "APIKEY_CANNOT_BE_VERIFIED",
+    "description": "ApiV1.error_APIKEY_CANNOT_BE_VERIFIED",
+    "params": []
+  }
+}
+```
+
+### API KEY has been deleted
+Status code: 403
+```javascript
+{
+  "result": null,
+  "error": {
+    "id": 15,
+    "name": "APIKEY_HAS_BEEN_DELETED",
+    "description": "ApiV1.error_APIKEY_HAS_BEEN_DELETED",
+    "params": []
+  }
+}
+```
