@@ -230,12 +230,10 @@ List all available fiat currencies (`symbol` is a key).
 }
 ```
 
-
-
-### GET /api/market/pairs
+### GET /api/market/pairs/id
 
 #### Description:
-List all available pairs (fiat -> asset).
+List all available pairs (fiat -> asset) (`id` is a key).
 
 #### Query:
 * `ts` (int): Your timestamp
@@ -243,69 +241,135 @@ List all available pairs (fiat -> asset).
 #### Response:
 ```javascript
 {
-    "result": [
-        {
-            "id": 1,
-            "from": "THB",
-            "to": "BTC",
-            "pair": "THB_BTC",
-            "availability": {
-                "asks": true,
-                "bids": true
-            }
-        },
-        {
-            "id": 2,
-            "from": "THB",
-            "to": "BCH",
-            "pair": "THB_BCH",
-            "availability": {
-                "asks": true,
-                "bids": true
-            }
-        },
-        {
-            "id": 3,
-            "from": "THB",
-            "to": "ETH",
-            "pair": "THB_ETH",
-            "availability": {
-                "asks": true,
-                "bids": true
-            }
-        },
-        {
-            "id": 4,
-            "from": "THB",
-            "to": "LTC",
-            "pair": "THB_LTC",
-            "availability": {
-                "asks": true,
-                "bids": true
-            }
-        },
-        {
-            "id": 5,
-            "from": "THB",
-            "to": "XRP",
-            "pair": "THB_XRP",
-            "availability": {
-                "asks": true,
-                "bids": true
-            }
-        },
-        {
-            "id": 6,
-            "from": "THB",
-            "to": "DASH",
-            "pair": "THB_DASH",
-            "availability": {
-                "asks": true,
-                "bids": true
-            }
-        }
-    ],
-    "error": false
+  "result": {
+    "1": {
+      "from": "THB",
+      "to": "BTC",
+      "pair": "THB_BTC",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "2": {
+      "from": "THB",
+      "to": "BCH",
+      "pair": "THB_BCH",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "3": {
+      "from": "THB",
+      "to": "ETH",
+      "pair": "THB_ETH",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "4": {
+      "from": "THB",
+      "to": "LTC",
+      "pair": "THB_LTC",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "5": {
+      "from": "THB",
+      "to": "XRP",
+      "pair": "THB_XRP",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "6": {
+      "from": "THB",
+      "to": "DASH",
+      "pair": "THB_DASH",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    }
+  },
+  "error": null
+}
+```
+
+
+### GET /api/market/pairs/symbol
+
+#### Description:
+List all available pairs (fiat -> asset) (`{symbol_from}_{symbol_to}` is a key).
+
+#### Query:
+* `ts` (int): Your timestamp
+
+#### Response:
+```javascript
+{
+  "result": {
+    "THB_BTC": {
+      "id": 1,
+      "from": "THB",
+      "to": "BTC",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "THB_BCH": {
+      "id": 2,
+      "from": "THB",
+      "to": "BCH",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "THB_ETH": {
+      "id": 3,
+      "from": "THB",
+      "to": "ETH",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "THB_LTC": {
+      "id": 4,
+      "from": "THB",
+      "to": "LTC",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "THB_XRP": {
+      "id": 5,
+      "from": "THB",
+      "to": "XRP",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    },
+    "THB_DASH": {
+      "id": 6,
+      "from": "THB",
+      "to": "DASH",
+      "availability": {
+        "asks": true,
+        "bids": true
+      }
+    }
+  },
+  "error": null
 }
 ```
 
