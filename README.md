@@ -326,16 +326,40 @@ Status code: 401
 
 ### API KEY has been deleted
 Status code: 403
+_Plase note: `params` key could be unavailable._
 ```javascript
 {
   "result": null,
   "error": {
     "id": 15,
     "name": "APIKEY_HAS_BEEN_DELETED",
-    "description": "API KEY has been deleted at: Saturday, September 28, 2019 8:19:27 AM UTC",
+    "description": "API KEY has been deleted at: Saturday, September 29, 2018 8:19:27 AM UTC",
     "params": [
       {
-        "date": "2019-09-28 08:19:27.000000",
+        "date": "2019-09-29 08:19:27.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      }
+    ]
+  }
+}
+```
+
+
+
+### API KEY has been expired
+Status code: 403
+_Plase note: `params` key could be unavailable._
+```javascript
+{
+  "result": null,
+  "error": {
+    "id": 12,
+    "name": "APIKEY_HAS_BEEN_EXPIRED",
+    "description": "API KEY has been expired at: Saturday, September 29, 2018 11:05:48 AM UTC",
+    "params": [
+      {
+        "date": "2019-09-29 11:05:48.000000",
         "timezone_type": 3,
         "timezone": "UTC"
       }
