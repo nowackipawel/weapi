@@ -11,9 +11,12 @@ Base URL is: https://api.wanda.exchange
 
 # Endpoints
 * [GET /v1/timestamp] (#get-v1timestamp)
-* [GET /v1/market/assets] (#get-v1market-assets)
-* [GET /v1/market/fiats] (#get-v1marketfiats)
-* [GET /v1/market/pairs] (#get-v1marketpairs)
+* [GET /v1/market/assets/id] (#get-v1market-assets)
+* [GET /v1/market/assets/symbol] (#get-v1market-assets)
+* [GET /v1/market/fiats/id] (#get-v1marketfiats)
+* [GET /v1/market/fiats/symbol] (#get-v1marketfiats)
+* [GET /v1/market/pairs/id] (#get-v1marketpairs)
+* [GET /v1/market/pairs/symbol] (#get-v1marketpairs)
 * [GET /v1/market/ticker] (#get-v1marketticker)
 * [GET /v1/market/trades] (#get-v1markettrades)
 * [GET /v1/market/bids] (#get-v1marketbids)
@@ -70,10 +73,10 @@ Get the server timestamp.
 ```
 
 
-### GET /api/market/assets
+### GET /api/market/assets/id
 
 #### Description:
-List all available assets.
+List all available assets (`id` is a key).
 
 #### Query:
 * `ts` (int): Your timestamp
@@ -81,62 +84,52 @@ List all available assets.
 #### Response:
 ```javascript
 {
-    "result": [
-        {
-            "id": 51,
-            "symbol": "BTC",
-            "name": "Bitcoin"
-        },
-        {
-            "id": 52,
-            "symbol": "BCH",
-            "name": "Bitcoin Cash"
-        },
-        {
-            "id": 53,
-            "symbol": "BTG",
-            "name": "Bitcoin Gold"
-        },
-        {
-            "id": 54,
-            "symbol": "ETH",
-            "name": "Ethereum"
-        },
-        {
-            "id": 55,
-            "symbol": "LTC",
-            "name": "Litecoin"
-        },
-        {
-            "id": 56,
-            "symbol": "XLM",
-            "name": "Stellar Lumens Coin"
-        },
-        {
-            "id": 57,
-            "symbol": "XRP",
-            "name": "Ripple"
-        },
-        {
-            "id": 58,
-            "symbol": "ZEC",
-            "name": "Zcash"
-        },
-        {
-            "id": 59,
-            "symbol": "DASH",
-            "name": "Dash"
-        }
-    ],
-    "error": false
+  "result": {
+    "51": {
+      "symbol": "BTC",
+      "name": "Bitcoin"
+    },
+    "52": {
+      "symbol": "BCH",
+      "name": "Bitcoin Cash"
+    },
+    "53": {
+      "symbol": "BTG",
+      "name": "Bitcoin Gold"
+    },
+    "54": {
+      "symbol": "ETH",
+      "name": "Ethereum"
+    },
+    "55": {
+      "symbol": "LTC",
+      "name": "Litecoin"
+    },
+    "56": {
+      "symbol": "XLM",
+      "name": "Stellar Lumens Coin"
+    },
+    "57": {
+      "symbol": "XRP",
+      "name": "Ripple"
+    },
+    "58": {
+      "symbol": "ZEC",
+      "name": "Zcash"
+    },
+    "59": {
+      "symbol": "DASH",
+      "name": "Dash"
+    }
+  },
+  "error": null
 }
 ```
 
-
-### GET /api/market/fiats
+### GET /api/market/assets/symbol
 
 #### Description:
-List all available fiats.
+List all available assets (`symbol` is a key).
 
 #### Query:
 * `ts` (int): Your timestamp
@@ -144,21 +137,99 @@ List all available fiats.
 #### Response:
 ```javascript
 {
-    "result": [
-        {
-            "id": 11,
-            "symbol": "THB",
-            "name": "Thai Bat"
-        },
-        {
-            "id": 13,
-            "symbol": "EUR",
-            "name": "Euro"
-        }
-    ],
-    "error": false
+  "result": {
+    "BTC": {
+      "id": 51,
+      "name": "Bitcoin"
+    },
+    "BCH": {
+      "id": 52,
+      "name": "Bitcoin Cash"
+    },
+    "BTG": {
+      "id": 53,
+      "name": "Bitcoin Gold"
+    },
+    "ETH": {
+      "id": 54,
+      "name": "Ethereum"
+    },
+    "LTC": {
+      "id": 55,
+      "name": "Litecoin"
+    },
+    "XLM": {
+      "id": 56,
+      "name": "Stellar Lumens Coin"
+    },
+    "XRP": {
+      "id": 57,
+      "name": "Ripple"
+    },
+    "ZEC": {
+      "id": 58,
+      "name": "Zcash"
+    },
+    "DASH": {
+      "id": 59,
+      "name": "Dash"
+    }
+  },
+  "error": null
 }
 ```
+
+
+### GET /api/market/fiats/id
+
+#### Description:
+List all available fiat currencies (`id` is a key).
+
+#### Query:
+* `ts` (int): Your timestamp
+
+#### Response:
+```javascript
+{
+  "result": {
+    "THB": {
+      "id": 11,
+      "name": "Thai Bat"
+    },
+    "EUR": {
+      "id": 13,
+      "name": "Euro"
+    }
+  },
+  "error": null
+}
+```
+
+### GET /api/market/fiats/symbol
+
+#### Description:
+List all available fiat currencies (`symbol` is a key).
+
+#### Query:
+* `ts` (int): Your timestamp
+
+#### Response:
+```javascript
+{
+  "result": {
+    "THB": {
+      "id": 11,
+      "name": "Thai Bat"
+    },
+    "EUR": {
+      "id": 13,
+      "name": "Euro"
+    }
+  },
+  "error": null
+}
+```
+
 
 
 ### GET /api/market/pairs
