@@ -328,8 +328,14 @@ Status code: 403
   "error": {
     "id": 15,
     "name": "APIKEY_HAS_BEEN_DELETED",
-    "description": "ApiV1.error_APIKEY_HAS_BEEN_DELETED",
-    "params": []
+    "description": "API KEY has been deleted at: Saturday, September 28, 2019 8:19:27 AM UTC",
+    "params": [
+      {
+        "date": "2019-09-28 08:19:27.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      }
+    ]
   }
 }
 ```
