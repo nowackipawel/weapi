@@ -48,7 +48,7 @@ Payload format is always a JSON. Every payload must contain timestamp (`ts`) and
 ```
 ### Example payloadWith signature:
 ```javascript
-{"from":"THB","to":"LTC","amount":34.012,"rate":123.456,"type":"market","ts":1567890123,"sig":"1e5ffc1dc3b5547950bb017133add50e"}
+{"from":"THB","to":"LTC","amount":34.012,"rate":123.456,"type":"market","ts":1567890123,"sig":"1e5ffc1dc3b5547950bb017133add50e}
 ```
 Signature must equal to result of contatation of: `ts` and your {API KEY}. If your {API KEY} equals: XYZ your signature should be like in the example above.
 
@@ -73,7 +73,7 @@ Get the server timestamp.
 ```
 
 
-### GET /api/market/assets/id
+### GET /v1/market/assets/id
 
 #### Description:
 List all available assets (`id` is a key).
@@ -126,7 +126,7 @@ List all available assets (`id` is a key).
 }
 ```
 
-### GET /api/market/assets/symbol
+### GET /v1/market/assets/symbol
 
 #### Description:
 List all available assets (`symbol` is a key).
@@ -180,7 +180,7 @@ List all available assets (`symbol` is a key).
 ```
 
 
-### GET /api/market/fiats/id
+### GET /v1/market/fiats/id
 
 #### Description:
 List all available fiat currencies (`id` is a key).
@@ -205,7 +205,7 @@ List all available fiat currencies (`id` is a key).
 }
 ```
 
-### GET /api/market/fiats/symbol
+### GET /v1/market/fiats/symbol
 
 #### Description:
 List all available fiat currencies (`symbol` is a key).
@@ -230,7 +230,7 @@ List all available fiat currencies (`symbol` is a key).
 }
 ```
 
-### GET /api/market/pairs/id
+### GET /v1/market/pairs/id
 
 #### Description:
 List all available pairs (fiat -> asset) (`id` is a key).
@@ -302,7 +302,7 @@ List all available pairs (fiat -> asset) (`id` is a key).
 ```
 
 
-### GET /api/market/pairs/symbol
+### GET /v1/market/pairs/symbol
 
 #### Description:
 List all available pairs (fiat -> asset) (`{symbol_from}_{symbol_to}` is a key).
@@ -395,7 +395,10 @@ Get ticker information.
 
 #### Query:
 * `ts` (int): Your timestamp
-* `sym` (string) The symbol (optional)
+Optional query parameters (`from` | `to` | `pair`)
+* `from` (string) The symbol of fiat currency,
+* `to` (string) The symbol of fiat currency,
+* `pair` (string) The symbol of pair (`{symbol_from}_{symbol_to}`), check available pairs with [GET /v1/market/pairs/symbol] or [GET /v1/market/pairs/id]
 
 #### Response:
 ```javascript
