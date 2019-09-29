@@ -388,10 +388,10 @@ List all available pairs (fiat -> asset) (`{symbol_from}_{symbol_to}` is a key).
 
 
 
-### GET /v1/market/ticker
+### GET /v1/market/ticker/symbol
 
 #### Description:
-Get ticker information.
+Get ticker information (`{symbol_from}_{symbol_to}` is a key).
 
 #### Query:
 * `ts` (int): Your timestamp
@@ -405,6 +405,7 @@ Optional query parameters (`from` | `to` | `pair`)
 {
   THB_BTC: {
     id: 1,
+    current
     last: "216415.00",
     lowestAsk: "216678.00",
     highestBid: "215000.00",
