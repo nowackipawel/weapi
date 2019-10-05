@@ -11,12 +11,12 @@ Base URL is: https://api.wanda.exchange
 
 # Endpoints
 * [GET /v1/timestamp] (#get-v1timestamp)
-* [GET /v1/market/assets/id] (#get-v1market-assets)
-* [GET /v1/market/assets/symbol] (#get-v1market-assets)
-* [GET /v1/market/fiats/id] (#get-v1marketfiats)
-* [GET /v1/market/fiats/symbol] (#get-v1marketfiats)
-* [GET /v1/market/pairs/id] (#get-v1marketpairs)
-* [GET /v1/market/pairs/symbol] (#get-v1marketpairs)
+* [GET /v1/market/asset/id] (#get-v1marketassetid)
+* [GET /v1/market/asset/symbol] (#get-v1marketassetsymbol)
+* [GET /v1/market/fiat/id] (#get-v1marketfiatid)
+* [GET /v1/market/fiat/symbol] (#get-v1marketfiatsymbol)
+* [GET /v1/market/pair/id] (#get-v1marketpairid)
+* [GET /v1/market/pair/symbol] (#get-v1marketpairsymbol)
 * [GET /v1/market/ticker] (#get-v1marketticker)
 * [GET /v1/market/trades] (#get-v1markettrades)
 * [GET /v1/market/bids] (#get-v1marketbids)
@@ -73,7 +73,7 @@ Get the server timestamp.
 ```
 
 
-### GET /v1/market/assets/id
+### GET /v1/market/asset/id
 
 #### Description:
 List all available assets (`id` is a key).
@@ -85,48 +85,90 @@ List all available assets (`id` is a key).
 ```javascript
 {
   "result": {
+    "20": {
+      "symbol": "GOLD",
+      "name": "Gold",
+      "is_active": true,
+      "is_crypto": false
+    },
+    "21": {
+      "symbol": "SILV",
+      "name": "Silver",
+      "is_active": true,
+      "is_crypto": false
+    },
+    "22": {
+      "symbol": "PLAT",
+      "name": "Platinium",
+      "is_active": true,
+      "is_crypto": false
+    },
+    "23": {
+      "symbol": "COPP",
+      "name": "Copper",
+      "is_active": true,
+      "is_crypto": false
+    },
     "51": {
       "symbol": "BTC",
-      "name": "Bitcoin"
+      "name": "Bitcoin",
+      "is_active": true,
+      "is_crypto": true
     },
     "52": {
       "symbol": "BCH",
-      "name": "Bitcoin Cash"
+      "name": "Bitcoin Cash",
+      "is_active": true,
+      "is_crypto": true
     },
     "53": {
       "symbol": "BTG",
-      "name": "Bitcoin Gold"
+      "name": "Bitcoin Gold",
+      "is_active": true,
+      "is_crypto": true
     },
     "54": {
       "symbol": "ETH",
-      "name": "Ethereum"
+      "name": "Etherium",
+      "is_active": true,
+      "is_crypto": true
     },
     "55": {
       "symbol": "LTC",
-      "name": "Litecoin"
+      "name": "Litecoin",
+      "is_active": true,
+      "is_crypto": true
     },
     "56": {
       "symbol": "XLM",
-      "name": "Stellar Lumens Coin"
+      "name": "Stellar Lumens Coin",
+      "is_active": true,
+      "is_crypto": true
     },
     "57": {
       "symbol": "XRP",
-      "name": "Ripple"
+      "name": "Ripple",
+      "is_active": true,
+      "is_crypto": true
     },
     "58": {
       "symbol": "ZEC",
-      "name": "Zcash"
+      "name": "Zcash",
+      "is_active": true,
+      "is_crypto": true
     },
     "59": {
       "symbol": "DASH",
-      "name": "Dash"
+      "name": "Dash",
+      "is_active": true,
+      "is_crypto": true
     }
   },
   "error": null
 }
 ```
 
-### GET /v1/market/assets/symbol
+### GET /v1/market/asset/symbol
 
 #### Description:
 List all available assets (`symbol` is a key).
@@ -140,39 +182,81 @@ List all available assets (`symbol` is a key).
   "result": {
     "BTC": {
       "id": 51,
-      "name": "Bitcoin"
+      "name": "Bitcoin",
+      "is_active": true,
+      "is_crypto": true
     },
     "BCH": {
       "id": 52,
-      "name": "Bitcoin Cash"
+      "name": "Bitcoin Cash",
+      "is_active": true,
+      "is_crypto": true
     },
     "BTG": {
       "id": 53,
-      "name": "Bitcoin Gold"
+      "name": "Bitcoin Gold",
+      "is_active": true,
+      "is_crypto": true
     },
     "ETH": {
       "id": 54,
-      "name": "Ethereum"
+      "name": "Etherium",
+      "is_active": true,
+      "is_crypto": true
+    },
+    "GOLD": {
+      "id": 20,
+      "name": "Gold",
+      "is_active": true,
+      "is_crypto": false
+    },
+    "SILV": {
+      "id": 21,
+      "name": "Silver",
+      "is_active": true,
+      "is_crypto": false
+    },
+    "PLAT": {
+      "id": 22,
+      "name": "Platinium",
+      "is_active": true,
+      "is_crypto": false
+    },
+    "COPP": {
+      "id": 23,
+      "name": "Copper",
+      "is_active": true,
+      "is_crypto": false
     },
     "LTC": {
       "id": 55,
-      "name": "Litecoin"
+      "name": "Litecoin",
+      "is_active": true,
+      "is_crypto": true
     },
     "XLM": {
       "id": 56,
-      "name": "Stellar Lumens Coin"
+      "name": "Stellar Lumens Coin",
+      "is_active": true,
+      "is_crypto": true
     },
     "XRP": {
       "id": 57,
-      "name": "Ripple"
+      "name": "Ripple",
+      "is_active": true,
+      "is_crypto": true
     },
     "ZEC": {
       "id": 58,
-      "name": "Zcash"
+      "name": "Zcash",
+      "is_active": true,
+      "is_crypto": true
     },
     "DASH": {
       "id": 59,
-      "name": "Dash"
+      "name": "Dash",
+      "is_active": true,
+      "is_crypto": true
     }
   },
   "error": null
@@ -180,7 +264,7 @@ List all available assets (`symbol` is a key).
 ```
 
 
-### GET /v1/market/fiats/id
+### GET /v1/market/fiat/id
 
 #### Description:
 List all available fiat currencies (`id` is a key).
@@ -192,20 +276,27 @@ List all available fiat currencies (`id` is a key).
 ```javascript
 {
   "result": {
-    "THB": {
-      "id": 11,
-      "name": "Thai Bat"
+    "11": {
+      "symbol": "THB",
+      "name": "Thai Bat",
+      "is_active": true
     },
-    "EUR": {
-      "id": 13,
-      "name": "Euro"
+    "12": {
+      "symbol": "EUR",
+      "name": "Euro",
+      "is_active": true
+    },
+    "13": {
+      "symbol": "USD",
+      "name": "US Dolar",
+      "is_active": true
     }
   },
   "error": null
 }
 ```
 
-### GET /v1/market/fiats/symbol
+### GET /v1/market/fiat/symbol
 
 #### Description:
 List all available fiat currencies (`symbol` is a key).
@@ -219,11 +310,18 @@ List all available fiat currencies (`symbol` is a key).
   "result": {
     "THB": {
       "id": 11,
-      "name": "Thai Bat"
+      "name": "Thai Bat",
+      "is_active": true
     },
     "EUR": {
+      "id": 12,
+      "name": "Euro",
+      "is_active": true
+    },
+    "USD": {
       "id": 13,
-      "name": "Euro"
+      "name": "US Dolar",
+      "is_active": true
     }
   },
   "error": null
