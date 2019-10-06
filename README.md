@@ -10,25 +10,25 @@ Base URL is: https://api.wanda.exchange
 * 
 
 # Endpoints
-* [GET /v1/timestamp] (#get-v1timestamp)
-* [GET /v1/market/asset/id] (#get-v1marketassetid)
-* [GET /v1/market/asset/symbol] (#get-v1marketassetsymbol)
-* [GET /v1/market/fiat/id] (#get-v1marketfiatid)
-* [GET /v1/market/fiat/symbol] (#get-v1marketfiatsymbol)
-* [GET /v1/market/pair/list] (#get-v1marketpairlist)
-* [GET /v1/market/pair/symbol] (#get-v1marketpairsymbol)
-* [GET /v1/market/ticker] (#get-v1marketticker)
-* [GET /v1/market/trades] (#get-v1markettrades)
-* [GET /v1/market/bids] (#get-v1marketbids)
-* [GET /v1/market/asks] (#get-v1marketasks)
-* [GET /v1/market/open] (#get-v1marketopen)
-* [GET /v1/market/tv] (#get-v1markettv)
+* [GET /v1/timestamp](#get-v1timestamp)
+* [GET /v1/market/asset/id](#get-v1marketassetid)
+* [GET /v1/market/asset/symbol](#get-v1marketassetsymbol)
+* [GET /v1/market/fiat/id](#get-v1marketfiatid)
+* [GET /v1/market/fiat/symbol](#get-v1marketfiatsymbol)
+* [GET /v1/market/pair/list](#get-v1marketpairlist)
+* [GET /v1/market/pair/symbol](#get-v1marketpairsymbol)
+* [GET /v1/market/ticker](#get-v1marketticker)
+* [GET /v1/market/trades](#get-v1markettrades)
+* [GET /v1/market/bids](#get-v1marketbids)
+* [GET /v1/market/asks](#get-v1marketasks)
+* [GET /v1/market/open](#get-v1marketopen)
+* [GET /v1/market/tv](#get-v1markettv)
 
-* [POST /v1/user/wallets] (#post-v1userwallets)
-* [POST /v1/user/wallet] (#post-v1userwallet)
-* [POST /v1/user/bid/make] (#post-v1userbid)
-* [POST /v1/user/ask/make] (#post-v1userask)
-* [POST /v1/user/order] (#post-v1userorder)
+* [POST /v1/user/wallets](#post-v1userwallets)
+* [POST /v1/user/wallet](#post-v1userwallet)
+* [POST /v1/user/bid/make](#post-v1userbid)
+* [POST /v1/user/ask/make](#post-v1userask)
+* [POST /v1/user/order](#post-v1userorder)
 
 # Constructing requests
 ## Request Header
