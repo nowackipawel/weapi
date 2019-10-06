@@ -18,10 +18,10 @@ Base URL is: https://api.wanda.exchange
 * [GET /v1/market/pair/list](#get-v1marketpairlist)
 * [GET /v1/market/pair/symbol](#get-v1marketpairsymbol)
 * [GET /v1/market/ticker](#get-v1marketticker)
-* [GET /v1/market/trades](#get-v1markettrades)
-* [GET /v1/market/bids](#get-v1marketbids)
-* [GET /v1/market/asks](#get-v1marketasks)
-* [GET /v1/market/open](#get-v1marketopen)
+* [GET /v1/market/trade/list](#get-v1markettradelist)
+* [GET /v1/market/bid/list](#get-v1marketbidlist)
+* [GET /v1/market/ask/list](#get-v1marketasklist)
+* [GET /v1/market/open/list](#get-v1marketopenlist)
 * [GET /v1/market/tv](#get-v1markettv)
 
 * [POST /v1/user/wallets](#post-v1userwallets)
@@ -556,7 +556,7 @@ List all available fiat currencies (`symbol` is a key).
 ### GET /v1/market/pair/list?ts={X}
 
 #### Description:
-List all available pairs (fiat -> asset) (`id` is a key).
+List all available pairs.
 
 #### Query:
 * `ts` (int): Your timestamp
@@ -564,8 +564,9 @@ List all available pairs (fiat -> asset) (`id` is a key).
 #### Response:
 ```javascript
 {
-  "result": {
-    "1": {
+  "result": [
+    {
+      "id": 1,
       "from": "11",
       "to": "51",
       "type": [
@@ -578,7 +579,8 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "bid": true
       }
     },
-    "2": {
+    {
+      "id": 2,
       "from": "11",
       "to": "52",
       "type": [
@@ -591,7 +593,8 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "bid": true
       }
     },
-    "3": {
+    {
+      "id": 3,
       "from": "11",
       "to": "53",
       "type": [
@@ -604,7 +607,8 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "bid": true
       }
     },
-    "4": {
+    {
+      "id": 4,
       "from": "11",
       "to": "54",
       "type": [
@@ -617,7 +621,8 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "bid": true
       }
     },
-    "5": {
+    {
+      "id": 5,
       "from": "11",
       "to": "55",
       "type": [
@@ -630,33 +635,8 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "bid": true
       }
     },
-    "6": {
-      "from": "51",
-      "to": "54",
-      "type": [
-        "asset",
-        "asset"
-      ],
-      "pair": "BTC_ETH",
-      "availability": {
-        "ask": true,
-        "bid": true
-      }
-    },
-    "7": {
-      "from": "51",
-      "to": "57",
-      "type": [
-        "asset",
-        "asset"
-      ],
-      "pair": "BTC_XRP",
-      "availability": {
-        "ask": true,
-        "bid": true
-      }
-    },
-    "8": {
+    {
+      "id": 8,
       "from": "51",
       "to": "103",
       "type": [
@@ -669,20 +649,8 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "bid": true
       }
     },
-    "9": {
-      "from": "54",
-      "to": "57",
-      "type": [
-        "asset",
-        "asset"
-      ],
-      "pair": "ETH_XRP",
-      "availability": {
-        "ask": true,
-        "bid": true
-      }
-    },
-    "10": {
+    {
+      "id": 10,
       "from": "54",
       "to": "103",
       "type": [
@@ -694,11 +662,53 @@ List all available pairs (fiat -> asset) (`id` is a key).
         "ask": true,
         "bid": true
       }
+    },
+    {
+      "id": 6,
+      "from": "51",
+      "to": "54",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "BTC_ETH",
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    {
+      "id": 7,
+      "from": "51",
+      "to": "57",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "BTC_XRP",
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    {
+      "id": 9,
+      "from": "54",
+      "to": "57",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "ETH_XRP",
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
     }
-  },
+  ],
   "time": {
-    "ts": 1570357021,
-    "duration": 4.027976036071777
+    "ts": 1570359912,
+    "duration": 4.139039039611816
   },
   "error": null
 }
@@ -708,7 +718,7 @@ List all available pairs (fiat -> asset) (`id` is a key).
 ### GET /v1/market/pairs/symbol?ts={ts}
 
 #### Description:
-List all available pairs (fiat -> asset) (`{symbol_from}_{symbol_to}` is a key).
+List all available pairs (fiat|asset -> asset|fiat) (`{symbol_from}_{symbol_to}` is a key).
 
 #### Query:
 * `ts` (int): Your timestamp
