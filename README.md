@@ -15,7 +15,7 @@ Base URL is: https://api.wanda.exchange
 * [GET /v1/market/asset/symbol] (#get-v1marketassetsymbol)
 * [GET /v1/market/fiat/id] (#get-v1marketfiatid)
 * [GET /v1/market/fiat/symbol] (#get-v1marketfiatsymbol)
-* [GET /v1/market/pair/id] (#get-v1marketpairid)
+* [GET /v1/market/pair/list] (#get-v1marketpairlist)
 * [GET /v1/market/pair/symbol] (#get-v1marketpairsymbol)
 * [GET /v1/market/ticker] (#get-v1marketticker)
 * [GET /v1/market/trades] (#get-v1markettrades)
@@ -73,7 +73,7 @@ Get the server timestamp.
 ```
 
 
-### GET /v1/market/asset/id
+### GET /v1/market/asset/id?ts={x}
 
 #### Description:
 List all available assets (`id` is a key).
@@ -89,86 +89,166 @@ List all available assets (`id` is a key).
       "symbol": "GOLD",
       "name": "Gold",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "21": {
       "symbol": "SILV",
       "name": "Silver",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "22": {
       "symbol": "PLAT",
       "name": "Platinium",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "23": {
       "symbol": "COPP",
       "name": "Copper",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "51": {
       "symbol": "BTC",
       "name": "Bitcoin",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "52": {
       "symbol": "BCH",
-      "name": "Bitcoin Cash",
+      "name": "Bcash",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "53": {
       "symbol": "BTG",
       "name": "Bitcoin Gold",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "54": {
       "symbol": "ETH",
-      "name": "Etherium",
+      "name": "Etherum",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 18,
+        "current": 2
+      }
     },
     "55": {
       "symbol": "LTC",
       "name": "Litecoin",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "56": {
       "symbol": "XLM",
       "name": "Stellar Lumens Coin",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 7,
+        "current": 2
+      }
     },
     "57": {
       "symbol": "XRP",
       "name": "Ripple",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "58": {
       "symbol": "ZEC",
       "name": "Zcash",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "59": {
       "symbol": "DASH",
       "name": "Dash",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
+    },
+    "103": {
+      "symbol": "USDT",
+      "name": "Tether",
+      "is_active": true,
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 0,
+        "current": 2
+      }
     }
+  },
+  "time": {
+    "ts": 1570357380,
+    "duration": 2.471097946166992
   },
   "error": null
 }
 ```
 
-### GET /v1/market/asset/symbol
+### GET /v1/market/asset/symbol?ts={x}
 
 #### Description:
 List all available assets (`symbol` is a key).
@@ -184,87 +264,200 @@ List all available assets (`symbol` is a key).
       "id": 51,
       "name": "Bitcoin",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "BCH": {
       "id": 52,
-      "name": "Bitcoin Cash",
+      "name": "Bcash",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "BTG": {
       "id": 53,
       "name": "Bitcoin Gold",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "ETH": {
       "id": 54,
-      "name": "Etherium",
+      "name": "Etherum",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 18,
+        "current": 2
+      }
     },
     "GOLD": {
       "id": 20,
       "name": "Gold",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "SILV": {
       "id": 21,
       "name": "Silver",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "PLAT": {
       "id": 22,
       "name": "Platinium",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "COPP": {
       "id": 23,
       "name": "Copper",
       "is_active": true,
-      "is_crypto": false
+      "is_market": false,
+      "is_crypto": false,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "LTC": {
       "id": 55,
       "name": "Litecoin",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "XLM": {
       "id": 56,
       "name": "Stellar Lumens Coin",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 7,
+        "current": 2
+      }
     },
     "XRP": {
       "id": 57,
       "name": "Ripple",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
     },
     "ZEC": {
       "id": 58,
       "name": "Zcash",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
     },
     "DASH": {
       "id": 59,
       "name": "Dash",
       "is_active": true,
-      "is_crypto": true
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
+    },
+    "NMC": {
+      "id": 100,
+      "name": "Namecoin",
+      "is_active": false,
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
+    },
+    "PPC": {
+      "id": 101,
+      "name": "Peercoin",
+      "is_active": false,
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 6,
+        "current": 2
+      }
+    },
+    "DOGE": {
+      "id": 102,
+      "name": "Dogecoin",
+      "is_active": false,
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 8,
+        "current": 2
+      }
+    },
+    "USDT": {
+      "id": 103,
+      "name": "Tether",
+      "is_active": true,
+      "is_market": false,
+      "is_crypto": true,
+      "precision": {
+        "real": 0,
+        "current": 2
+      }
     }
+  },
+  "time": {
+    "ts": 1570357415,
+    "duration": 2.5266048908233643
   },
   "error": null
 }
 ```
 
 
-### GET /v1/market/fiat/id
+### GET /v1/market/fiat/id?ts={x}
 
 #### Description:
 List all available fiat currencies (`id` is a key).
@@ -279,18 +472,34 @@ List all available fiat currencies (`id` is a key).
     "11": {
       "symbol": "THB",
       "name": "Thai Bat",
-      "is_active": true
+      "is_active": true,
+      "precision": {
+        "real": 2,
+        "current": 2
+      }
     },
     "12": {
       "symbol": "EUR",
       "name": "Euro",
-      "is_active": true
+      "is_active": true,
+      "precision": {
+        "real": 2,
+        "current": 2
+      }
     },
     "13": {
       "symbol": "USD",
       "name": "US Dolar",
-      "is_active": true
+      "is_active": true,
+      "precision": {
+        "real": 2,
+        "current": 2
+      }
     }
+  },
+  "time": {
+    "ts": 1570357356,
+    "duration": 2.5558760166168213
   },
   "error": null
 }
@@ -311,24 +520,40 @@ List all available fiat currencies (`symbol` is a key).
     "THB": {
       "id": 11,
       "name": "Thai Bat",
-      "is_active": true
+      "is_active": true,
+      "precision": {
+        "real": 2,
+        "current": 2
+      }
     },
     "EUR": {
       "id": 12,
       "name": "Euro",
-      "is_active": true
+      "is_active": true,
+      "precision": {
+        "real": 2,
+        "current": 2
+      }
     },
     "USD": {
       "id": 13,
       "name": "US Dolar",
-      "is_active": true
+      "is_active": true,
+      "precision": {
+        "real": 2,
+        "current": 2
+      }
     }
+  },
+  "time": {
+    "ts": 1570357293,
+    "duration": 2.53281307220459
   },
   "error": null
 }
 ```
 
-### GET /v1/market/pairs/id
+### GET /v1/market/pair/list?ts={X}
 
 #### Description:
 List all available pairs (fiat -> asset) (`id` is a key).
@@ -341,66 +566,146 @@ List all available pairs (fiat -> asset) (`id` is a key).
 {
   "result": {
     "1": {
-      "from": "THB",
-      "to": "BTC",
+      "from": "11",
+      "to": "51",
+      "type": [
+        "fiat",
+        "asset"
+      ],
       "pair": "THB_BTC",
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "2": {
-      "from": "THB",
-      "to": "BCH",
+      "from": "11",
+      "to": "52",
+      "type": [
+        "fiat",
+        "asset"
+      ],
       "pair": "THB_BCH",
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "3": {
-      "from": "THB",
-      "to": "ETH",
-      "pair": "THB_ETH",
+      "from": "11",
+      "to": "53",
+      "type": [
+        "fiat",
+        "asset"
+      ],
+      "pair": "THB_BTG",
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "4": {
-      "from": "THB",
-      "to": "LTC",
-      "pair": "THB_LTC",
+      "from": "11",
+      "to": "54",
+      "type": [
+        "fiat",
+        "asset"
+      ],
+      "pair": "THB_ETH",
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "5": {
-      "from": "THB",
-      "to": "XRP",
-      "pair": "THB_XRP",
+      "from": "11",
+      "to": "55",
+      "type": [
+        "fiat",
+        "asset"
+      ],
+      "pair": "THB_LTC",
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "6": {
-      "from": "THB",
-      "to": "DASH",
-      "pair": "THB_DASH",
+      "from": "51",
+      "to": "54",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "BTC_ETH",
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
+      }
+    },
+    "7": {
+      "from": "51",
+      "to": "57",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "BTC_XRP",
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    "8": {
+      "from": "51",
+      "to": "103",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "BTC_USDT",
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    "9": {
+      "from": "54",
+      "to": "57",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "ETH_XRP",
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    "10": {
+      "from": "54",
+      "to": "103",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "pair": "ETH_USDT",
+      "availability": {
+        "ask": true,
+        "bid": true
       }
     }
+  },
+  "time": {
+    "ts": 1570357021,
+    "duration": 4.027976036071777
   },
   "error": null
 }
 ```
 
 
-### GET /v1/market/pairs/symbol
+### GET /v1/market/pairs/symbol?ts={ts}
 
 #### Description:
 List all available pairs (fiat -> asset) (`{symbol_from}_{symbol_to}` is a key).
@@ -414,76 +719,142 @@ List all available pairs (fiat -> asset) (`{symbol_from}_{symbol_to}` is a key).
   "result": {
     "THB_BTC": {
       "id": 1,
-      "from": "THB",
-      "to": "BTC",
+      "from": "11",
+      "to": "51",
+      "type": [
+        "fiat",
+        "asset"
+      ],
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "THB_BCH": {
       "id": 2,
-      "from": "THB",
-      "to": "BCH",
+      "from": "11",
+      "to": "52",
+      "type": [
+        "fiat",
+        "asset"
+      ],
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
+      }
+    },
+    "THB_BTG": {
+      "id": 3,
+      "from": "11",
+      "to": "53",
+      "type": [
+        "fiat",
+        "asset"
+      ],
+      "availability": {
+        "ask": true,
+        "bid": true
       }
     },
     "THB_ETH": {
-      "id": 3,
-      "from": "THB",
-      "to": "ETH",
+      "id": 4,
+      "from": "11",
+      "to": "54",
+      "type": [
+        "fiat",
+        "asset"
+      ],
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
     "THB_LTC": {
-      "id": 4,
-      "from": "THB",
-      "to": "LTC",
-      "availability": {
-        "asks": true,
-        "bids": true
-      }
-    },
-    "THB_XRP": {
       "id": 5,
-      "from": "THB",
-      "to": "XRP",
+      "from": "11",
+      "to": "55",
+      "type": [
+        "fiat",
+        "asset"
+      ],
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
       }
     },
-    "THB_DASH": {
-      "id": 6,
-      "from": "THB",
-      "to": "DASH",
+    "BTC_USDT": {
+      "id": 8,
+      "from": "51",
+      "to": "103",
+      "type": [
+        "asset",
+        "asset"
+      ],
       "availability": {
-        "asks": true,
-        "bids": true
+        "ask": true,
+        "bid": true
+      }
+    },
+    "ETH_USDT": {
+      "id": 10,
+      "from": "54",
+      "to": "103",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    "BTC_ETH": {
+      "id": 6,
+      "from": "51",
+      "to": "54",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    "BTC_XRP": {
+      "id": 7,
+      "from": "51",
+      "to": "57",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "availability": {
+        "ask": true,
+        "bid": true
+      }
+    },
+    "ETH_XRP": {
+      "id": 9,
+      "from": "54",
+      "to": "57",
+      "type": [
+        "asset",
+        "asset"
+      ],
+      "availability": {
+        "ask": true,
+        "bid": true
       }
     }
+  },
+  "time": {
+    "ts": 1570357084,
+    "duration": 4.141546964645386
   },
   "error": null
 }
 ```
-
-```
-{
-  "id": 6, // ID
-  "from": "THB", // Asset (fiat) from
-  "to": "DASH", // Asset (cryptocurrency) to
-  "pair": "THB_DASH", // Pair name
-  "availability": {
-    "asks": true, // Availability of placing asks
-    "bids": true  // Availability of placing asks
-  }
-}
-```
-
 
 
 ### GET /v1/market/ticker/symbol
