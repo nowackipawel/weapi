@@ -716,7 +716,7 @@ List all available pairs.
 ```
 
 
-### GET /v1/market/pairs/symbol
+### GET /v1/market/pair/symbol
 
 #### Description:
 List all available pairs (fiat|asset -> asset|fiat) (`{symbol_from}_{symbol_to}` is a key).
