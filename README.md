@@ -39,7 +39,7 @@ Every request must contain following headers:
 * X-WEX-APIKEY: {API KEY}
 
 ## Payload
-Payload format is always a JSON. Every payload must contain timestamp (`ts`) and for user specified data signature key (`sig`) is required.
+Payload format is always a JSON. Every payload must contain timestamp (`ts`)  in the query string (for both methods: `post` and `get`) and for user specified methods signature key (`sig`) is required.
 
 
 ### Example payload with out signature:
@@ -59,10 +59,11 @@ Refer to the following for description of each endpoint
 ### GET /v1/timestamp
 
 #### Description:
-Get the server timestamp.
+Get the server timestamp. 
+Your delta of your and our timestamp is not verified when you call this method.
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
+* none
 
 #### Response:
 ```javascript
@@ -73,13 +74,13 @@ Get the server timestamp.
 ```
 
 
-### GET /v1/market/asset/id?ts={x}
+### GET /v1/market/asset/id
 
 #### Description:
 List all available assets (`id` is a key).
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
+* none
 
 #### Response:
 ```javascript
@@ -248,13 +249,13 @@ List all available assets (`id` is a key).
 }
 ```
 
-### GET /v1/market/asset/symbol?ts={x}
+### GET /v1/market/asset/symbol
 
 #### Description:
 List all available assets (`symbol` is a key).
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
+* none
 
 #### Response:
 ```javascript
@@ -457,13 +458,13 @@ List all available assets (`symbol` is a key).
 ```
 
 
-### GET /v1/market/fiat/id?ts={x}
+### GET /v1/market/fiat/id
 
 #### Description:
 List all available fiat currencies (`id` is a key).
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
+* none
 
 #### Response:
 ```javascript
@@ -553,13 +554,13 @@ List all available fiat currencies (`symbol` is a key).
 }
 ```
 
-### GET /v1/market/pair/list?ts={X}
+### GET /v1/market/pair/list
 
 #### Description:
 List all available pairs.
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
+* none
 
 #### Response:
 ```javascript
@@ -715,13 +716,13 @@ List all available pairs.
 ```
 
 
-### GET /v1/market/pairs/symbol?ts={ts}
+### GET /v1/market/pairs/symbol
 
 #### Description:
 List all available pairs (fiat|asset -> asset|fiat) (`{symbol_from}_{symbol_to}` is a key).
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
+* none
 
 #### Response:
 ```javascript
@@ -872,12 +873,11 @@ List all available pairs (fiat|asset -> asset|fiat) (`{symbol_from}_{symbol_to}`
 #### Description:
 Get ticker information (`{symbol_from}_{symbol_to}` is a key).
 
-#### Query:
-* `ts` (int): Your timestamp
+#### Query (body):
 Optional query parameters (`from` | `to` | `pair`)
-* `from` (string) The symbol of fiat currency,
-* `to` (string) The symbol of fiat currency,
-* `pair` (string) The symbol of pair (`{symbol_from}_{symbol_to}`), check available pairs with [GET /v1/market/pairs/symbol] or [GET /v1/market/pairs/id]
+* `id` (array of ints) The symbol of fiat currency [1,2,8]
+* `from` (object) ```{"fiat": [11, 12], "asset":[51, 56]}```,
+* `to` (object) ```{"fiat": [11, 12], "asset":[51, 56]}```,
 
 #### Response:
 ```javascript
