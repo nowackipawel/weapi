@@ -947,11 +947,11 @@ List all available wallets / wallets filtered by asset ids. Identifier of the wa
 
 #### Description:
 List all available wallets / wallets filtered by asset ids. Identifier of the asset is a key.
-In case there will be more wallets for one asset ID then some of the keys could be an arrays instead of objects, that's why is better to call 
-* [POST /v1/user/wallet/list/id](#post-v1userwalletlistid) if you are not sure. 
+In case there will be more wallets for one asset ID then some of the keys could be an arrays instead of objects, that's why is better to call
+* [POST /v1/user/wallet/list/id](#post-v1userwalletlistid) if you are not sure. Please note: aliases for wallet's are not causing asset keys to be an array.
 
 #### Query (body):
-* `asset` (array of integers, optional): identifiers of assets ```{"asset":[51]}```
+* `asset` (array of integers, optional): identifiers of assets ```{"asset":[51,52]}```
 
 #### Response:
 ```javascript
