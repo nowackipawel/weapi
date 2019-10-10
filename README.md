@@ -25,7 +25,7 @@ Base URL is: https://api.wanda.exchange
 * [GET /v1/market/tv](#get-v1markettv)
 
 * [POST /v1/user/wallet/list/id](#post-v1userwalletlistid)
-* [POST /v1/user/wallet/list/symbol](#post-v1userwalletlistsymbol)
+* [POST /v1/user/wallet/list/asset](#post-v1userwalletlistasset)
 * [POST /v1/user/wallet/id/info](#post-v1userwalletidaddress)
 
 * [POST /v1/user/balance/list](#post-v1userbalancelist)
