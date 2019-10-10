@@ -7,7 +7,7 @@ Base URL is: https://api.wanda.exchange
 
 ## Additional information
 * All dates: UTC
-* 
+
 
 # Endpoints
 * [GET /v1/timestamp](#get-v1timestamp)
@@ -17,45 +17,50 @@ Base URL is: https://api.wanda.exchange
 * [GET /v1/market/fiat/symbol](#get-v1marketfiatsymbol)
 * [GET /v1/market/pair/list](#get-v1marketpairlist)
 * [GET /v1/market/pair/symbol](#get-v1marketpairsymbol)
-* [GET /v1/market/ticker](#get-v1marketticker)
+* [GET /v1/market/ticker/id](#get-v1markettickerid)
+* [GET /v1/market/ticker/symbol](#get-v1markettickerid)
 * [GET /v1/market/trade/list](#get-v1markettradelist)
 * [GET /v1/market/bid/list](#get-v1marketbidlist)
 * [GET /v1/market/ask/list](#get-v1marketasklist)
 * [GET /v1/market/open/list](#get-v1marketopenlist)
-* [GET /v1/market/tv](#get-v1markettv)
+* [GET /v1/market/tradingview](#get-v1markettradingview)
 
 * [POST /v1/user/wallet/list/id](#post-v1userwalletlistid)
 * [POST /v1/user/wallet/list/asset](#post-v1userwalletlistasset)
 * [POST /v1/user/wallet/id](#post-v1userwalletid)
 
-* [POST /v1/user/balance/list](#post-v1userbalancelist)
-* [POST /v1/user/balance/asset](#post-v1userbalanceasset)
 
-* [POST /v1/user/bid/make](#post-v1userbid)
-* [POST /v1/user/ask/make](#post-v1userask)
-* [POST /v1/user/order](#post-v1userorder)
+* [POST /v1/user/balance/list](#post-v1userbalancelist) -
+* [POST /v1/user/balance/asset](#post-v1userbalanceasset) -
+* [POST /v1/user/balance/fiat](#post-v1userbalancefiat) -
+
+* [POST /v1/user/bid/place](#post-v1userbidplace) -
+* [POST /v1/user/ask/place](#post-v1useraskplpace) -
+* [POST /v1/user/order/list](#post-v1userorderlist) -
+* [POST /v1/user/order/cancel](#post-v1userordercancel) -
+
 
 # Constructing requests
 ## Request Header
-Authentication requires API KEY and API SECRET. 
 Every request must contain following headers:
 * Accept: application/json
 * Content-Type: application/json
 * X-WEX-APIKEY: {API KEY}
+*Additionaly: "User's" requests requires authentication - signature have to be provided.*
 
 ## Payload
-Payload format is always a JSON. Every payload must contain timestamp (`ts`)  in the query string (for both methods: `post` and `get`) and for user specified methods signature key (`sig`) is required.
+Payload format is always a JSON. Every payload must contain timestamp (`ts`)  in the query string (`?ts=CURRENT_TIMESTAMP` for both methods: `post` and `get`) and for user specified methods signature key (`sig`) is required.
 
 
 ### Example payload with out signature:
 ```javascript
-{"from":"THB","to":"LTC","amount":34.012,"rate":123.456,"type":"market","ts":1567890123}
+{"asset":{"id":[51]},"ts":1567890123}
 ```
 ### Example payloadWith signature:
 ```javascript
-{"from":"THB","to":"LTC","amount":34.012,"rate":123.456,"type":"market","ts":1567890123,"sig":"1e5ffc1dc3b5547950bb017133add50e}
+{"asset":{"id":[51]},"ts":1567890123,"sig":"1e5ffc1dc3b5547950bb017133add50e}
 ```
-Signature must equal to result of contatation of: `ts` and your {API KEY}. If your {API KEY} equals: XYZ your signature should be like in the example above.
+Signature must equal to result of HMAC SHAcontatation of: `ts` and your {API SECRET}. If your {API KEY} equals: XYZ your signature should be like in the example above.
 
 
 # API documentation
@@ -873,6 +878,19 @@ List all available pairs (fiat|asset -> asset|fiat) (`{symbol_from}_{symbol_to}`
 ```
 
 
+### GET /v1/market/ticker/id
+
+#### Description:
+Get ticker information (`{pair_id}` is a key).
+
+#### Query (body):
+Optional query parameters (`from` | `to` | `pair`)
+* `id` (array of integers) identifiers of pairs ```{"id":[1,2,8]}```,
+* `from` (object) ```{"from":{"fiat": [11, 12], "asset":[51, 56]}}```,
+* `to` (object) ```{"to":{"fiat": [11, 12], "asset":[51, 56]}}```,
+
+//TODO
+
 ### GET /v1/market/ticker/symbol
 
 #### Description:
@@ -880,9 +898,11 @@ Get ticker information (`{symbol_from}_{symbol_to}` is a key).
 
 #### Query (body):
 Optional query parameters (`from` | `to` | `pair`)
-* `id` (array of integers) identifiers of pairs [1,2,8]
-* `from` (object) ```{"fiat": [11, 12], "asset":[51, 56]}```,
-* `to` (object) ```{"fiat": [11, 12], "asset":[51, 56]}```,
+* `id` (array of integers) identifiers of pairs ```{"id":[1,2,8]}```,
+* `from` (object) ```{"from":{"fiat": [11, 12], "asset":[51, 56]}}```,
+* `to` (object) ```{"to":{"fiat": [11, 12], "asset":[51, 56]}}```,
+
+//TODO
 
 #### Response:
 ```javascript
@@ -914,6 +934,15 @@ Optional query parameters (`from` | `to` | `pair`)
   }
 }
 ```
+
+### GET /v1/market/trade/list
+
+### GET /v1/market/bid/list
+
+### GET /v1/market/ask/list
+
+### GET /v1/market/open/list
+
 
 
 ### POST /v1/user/wallet/list/id
@@ -1019,6 +1048,16 @@ List all wallet's addresses. If you'll priovide identifiers and addresses then `
   "error": null
 }
 ```
+
+
+### POST /v1/user/balance/list
+### POST /v1/user/balance/asset
+### POST /v1/user/balance/fiat
+
+### POST /v1/user/bid/place
+### POST /v1/user/ask/place
+### POST /v1/user/order/list
+### POST /v1/user/order/cancel 
 
 
 # Errors
