@@ -24,8 +24,13 @@ Base URL is: https://api.wanda.exchange
 * [GET /v1/market/open/list](#get-v1marketopenlist)
 * [GET /v1/market/tv](#get-v1markettv)
 
-* [POST /v1/user/wallets](#post-v1userwallets)
-* [POST /v1/user/wallet](#post-v1userwallet)
+* [POST /v1/user/wallet/list/id](#post-v1userwalletlistid)
+* [POST /v1/user/wallet/list/symbol](#post-v1userwalletlistsymbol)
+* [POST /v1/user/wallet/id/info](#post-v1userwalletidaddress)
+
+* [POST /v1/user/balance/list](#post-v1userbalancelist)
+* [POST /v1/user/balance/asset](#post-v1userbalanceasset)
+
 * [POST /v1/user/bid/make](#post-v1userbid)
 * [POST /v1/user/ask/make](#post-v1userask)
 * [POST /v1/user/order](#post-v1userorder)
@@ -875,7 +880,7 @@ Get ticker information (`{symbol_from}_{symbol_to}` is a key).
 
 #### Query (body):
 Optional query parameters (`from` | `to` | `pair`)
-* `id` (array of ints) The symbol of fiat currency [1,2,8]
+* `id` (array of integers) identifiers of pairs [1,2,8]
 * `from` (object) ```{"fiat": [11, 12], "asset":[51, 56]}```,
 * `to` (object) ```{"fiat": [11, 12], "asset":[51, 56]}```,
 
@@ -910,6 +915,88 @@ Optional query parameters (`from` | `to` | `pair`)
 }
 ```
 
+
+### POST /v1/user/wallet/list/id
+
+#### Description:
+List all available wallets / wallets filtered by asset ids. Identifier of the wallet is a key.
+
+#### Query (body):
+* `asset` (array of integers, optional): identifiers of assets ```{"asset":[51]}```
+
+#### Response:
+```javascript
+{
+  "result": {
+    "5this_is_example_onlyaa97a3d72fe": {
+      "address": "2this_is_example_onlyZNFs8CwDQwgFSF",
+      "asset": 51,
+      "is_blocked": false,
+      "is_active": true
+    }
+  },
+  "time": {
+    "ts": 1570686849,
+    "duration": 1.8354721069335938
+  },
+  "error": null
+}
+```
+
+### POST /v1/user/wallet/list/asset
+
+#### Description:
+List all available wallets / wallets filtered by asset ids. Identifier of the asset is a key.
+In case there will be more wallets for one asset ID then some of the keys could be an arrays instead of objects, that's why is better to call 
+* [POST /v1/user/wallet/list/id](#post-v1userwalletlistid) if you are not sure. 
+
+#### Query (body):
+* `asset` (array of integers, optional): identifiers of assets ```{"asset":[51]}```
+
+#### Response:
+```javascript
+{
+  "result": {
+    "51": {
+      "id": "5this_is_example_onlyaa97a3d72fe",
+      "address": "2this_is_example_onlyZNFs8CwDQwgFSF",
+      "is_blocked": false,
+      "is_active": true
+    },
+    "52": [
+    {
+      "id": "5this_is_example_onlyaa97a3d7001",
+      "address": "2this_is_example_onlyZNFs8CwDQw0001",
+      "is_blocked": false,
+      "is_active": true
+    },
+    {
+      "id": "5this_is_example_onlyaa97a3d7002",
+      "address": "2this_is_example_onlyZNFs8CwDQw0002",
+      "is_blocked": false,
+      "is_active": true
+    }]
+  },
+  "time": {
+    "ts": 1570687691,
+    "duration": 1.8826661109924316
+  },
+  "error": null
+}
+```
+
+### POST /v1/user/wallet/id/info
+
+#### Description:
+List all wallet's addresses.
+
+#### Query (body):
+* `id` (array of strings, required): identifiers of wallets ```{"wallet":["a01THIS_IS_EXAMPLE_ONLY7a3d72fe", "a01THIS_IS_EXAMPLE_ONLY7a3d72ff"]}```
+
+#### Response:
+```javascript
+
+```
 
 
 # Errors
