@@ -26,7 +26,7 @@ Base URL is: https://api.wanda.exchange
 
 * [POST /v1/user/wallet/list/id](#post-v1userwalletlistid)
 * [POST /v1/user/wallet/list/asset](#post-v1userwalletlistasset)
-* [POST /v1/user/wallet/id/info](#post-v1userwalletidaddress)
+* [POST /v1/user/wallet/id](#post-v1userwalletid)
 
 * [POST /v1/user/balance/list](#post-v1userbalancelist)
 * [POST /v1/user/balance/asset](#post-v1userbalanceasset)
@@ -985,17 +985,39 @@ In case there will be more wallets for one asset ID then some of the keys could 
 }
 ```
 
-### POST /v1/user/wallet/id/info
+### POST /v1/user/wallet/id
 
 #### Description:
-List all wallet's addresses.
+List all wallet's addresses. If you'll priovide identifiers and addresses then `IN(id) AND IN(address)` condition will be in use. If you will pass id or address of the alias you will get the NO_DATA error.
 
 #### Query (body):
-* `id` (array of strings, required): identifiers of wallets ```{"wallet":["a01THIS_IS_EXAMPLE_ONLY7a3d72fe", "a01THIS_IS_EXAMPLE_ONLY7a3d72ff"]}```
+* `wallet` (object, required): identifiers or main addresses,
+* `wallet->id` (array of strings): walet's identifiers ```{"wallet":{"id":["xyz"]}```,
+* `wallet->address` (array of strings): wallet's identifiers ```{"wallet":{"address":["1xy"]}}```
 
 #### Response:
 ```javascript
-
+{
+  "result": {
+    "5this_is_example_onlyaa97a3d72fe": [
+      {
+        "address": "2NCthi_is_example_onlyNFs8CwDQwgFSF",
+        "id": "5this_is_example_onlyaad1a7f0f77", //id of the address
+        "chain": 0
+      },
+      {
+        "address": "2Nthis_is_example_only85uUug3aR7zs4",
+        "id": "5this_is_example_only4310e2a16dd", // id of the address
+        "chain": 0
+      }
+    ]
+  },
+  "time": {
+    "ts": 1570689969,
+    "duration": 3.5230319499969482
+  },
+  "error": null
+}
 ```
 
 
